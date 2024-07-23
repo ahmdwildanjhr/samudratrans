@@ -325,9 +325,12 @@ AOS.init({
 
 
 	$('#book_pick_date,#book_off_date').datepicker({
-		'format': 'm/d/yyyy',
-		'autoclose': true
+		'format': 'd/m/yyyy',
+		'autoclose': true,
+		'startDate': new Date()  // Menentukan tanggal mulai dari hari ini
 	});
+
+
 	$('#time_pick').timepicker({
 		timeFormat: 'H:i'
 	});
@@ -402,15 +405,15 @@ AOS.init({
 
 	var durations = [
 		{ value: '', text: 'Pilih Durasi Sewa', disabled: true, selected: true },
-		{ value: '3_hour', text: '3 Jam' },
-		{ value: '6_hours', text: '6 Jam' },
-		{ value: '12_hours', text: '12 Jam' }
+		{ value: '3 Jam', text: '3 Jam' },
+		{ value: '6 Jam', text: '6 Jam' },
+		{ value: '12 Jam', text: '12 Jam' }
 		// Tambahkan opsi waktu dalam jam jika diperlukan
 	];
 
 	// Tambahkan opsi untuk durasi sewa dari 1 hari hingga 30 hari
 	for (var i = 1; i <= 30; i++) {
-		var value = i + '_day' + (i > 1 ? 's' : ''); // Menambahkan 's' untuk plural
+		var value = i + 'Hari'; // Menambahkan 's' untuk plural
 		var text = i + ' Hari';
 		durations.push({ value: value, text: text });
 	}
@@ -445,14 +448,14 @@ AOS.init({
 
 		// Format data untuk pesan WhatsApp
 		const message = `*Pesanan Sewa Mobil*\n` +
-			`Nama Pelanggan: ${custName}\n` +
-			`Nama Mobil: ${carName}\n` +
-			`Lokasi Ambil: ${pickupLocation}\n` +
-			`Lokasi Kembali: ${returnLocation}\n` +
-			`Tanggal Ambil: ${pickupDate}\n` +
-			`Tanggal Kembali: ${returnDate}\n` +
-			`Waktu Ambil: ${pickupHour}\n` +
-			`Durasi Sewa: ${rentalDuration}\n`;
+			`Nama Pelanggan : ${custName}\n` +
+			`Nama Mobil        : ${carName}\n` +
+			`Lokasi Ambil        : ${pickupLocation}\n` +
+			`Lokasi Kembali    : ${returnLocation}\n` +
+			`Tanggal Ambil     : ${pickupDate}\n` +
+			`Tanggal Kembali : ${returnDate}\n` +
+			`Waktu Ambil       : ${pickupHour}\n` +
+			`Durasi Sewa        : ${rentalDuration}\n`;
 
 		// Encode URL
 		const encodedMessage = encodeURIComponent(message);
@@ -461,6 +464,15 @@ AOS.init({
 
 		// Arahkan ke WhatsApp
 		window.open(whatsappUrl, '_blank');
+	});
+
+	// Calculate the number of years from 2020 to the current year
+	$(document).ready(function () {
+		const startYear = 2020;
+		const currentYear = new Date().getFullYear();
+		const experienceYears = currentYear - startYear;
+
+		$('#experience-years').text(experienceYears);
 	});
 })(jQuery);
 
