@@ -89,6 +89,17 @@
             <div class="col-md-4 d-flex align-items-center">
               <form action="#" class="request-form ftco-animate bg-primary">
                 <h2>Tingkatkan perjalananmu</h2>
+                <div class="d-flex">
+                  <div class="form-group mr-2">
+                    <label for="" class="label">Nama Pelanggan</label>
+                    <input type="text"  class="form-control" id="custName" placeholder="Masukkan Namamu">
+                  </div>
+                  <div class="form-group mr-2">
+                    <label for="carName" class="label">Nama Mobil</label>
+                    <select class="form-control custom-dropdown" id="carName">
+                    </select>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label for="" class="label">Lokasi Ambil</label>
                   <input type="text" class="form-control" placeholder="Kota, Bandara, Stasiun, dll">
@@ -100,21 +111,23 @@
                 <div class="d-flex">
                   <div class="form-group mr-2">
                     <label for="" class="label">Tanggal Ambil</label>
-                    <input type="text" class="form-control" id="book_pick_date" placeholder="Tanggal">
+                    <input type="text" class="form-control" id="book_pick_date" placeholder="Pilih Tanggal">
                   </div>
                   <div class="form-group ml-2">
                     <label for="" class="label">Tanggal Kembali</label>
-                    <input type="text" class="form-control" id="book_off_date" placeholder="Tanggal">
+                    <input type="text" class="form-control" id="book_off_date" placeholder="Pilih Tanggal">
                   </div>
                 </div>
                 <div class="d-flex">
                   <div class="form-group ml-2">
-                    <label for="" class="label">Waktu Ambil</label>
-                    <input type="text" class="form-control" id="time_pick" placeholder="Jam">
+                    <label for="rentalDuration" class="label">Waktu Ambil</label>
+                    <select class="form-control custom-dropdown" id="hourRental">
+                    </select>
                   </div>
                   <div class="form-group ml-2">
-                    <label for="" class="label">Durasi Sewa</label>
-                    <input type="text" class="form-control" id="time_pick" placeholder="Jam/Harian">
+                    <label for="rentalDuration" class="label">Durasi Sewa</label>
+                    <select class="form-control custom-dropdown" id="rentalDuration">
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
