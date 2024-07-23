@@ -140,14 +140,22 @@ AOS.init({
 				navbar = $('.ftco_navbar'),
 				sd = $('.js-scroll-wrap');
 
+			// Gambar logo
+			var logoNormal = $('#logo-normal');
+			var logoScroll = $('#logo-scroll');
+
 			if (st > 150) {
 				if (!navbar.hasClass('scrolled')) {
 					navbar.addClass('scrolled');
+					logoNormal.hide();
+					logoScroll.show();
 				}
 			}
 			if (st < 150) {
 				if (navbar.hasClass('scrolled')) {
 					navbar.removeClass('scrolled sleep');
+					logoNormal.show();
+					logoScroll.hide();
 				}
 			}
 			if (st > 350) {
@@ -170,7 +178,9 @@ AOS.init({
 			}
 		});
 	};
+
 	scrollWindow();
+
 
 	var isMobile = {
 		Android: function () {
@@ -327,15 +337,15 @@ AOS.init({
 
 	var cars = [
 		{ value: '', text: 'Pilih Mobil', disabled: true, selected: true },
-		{ value: 'new_avanza', text: 'New Avanza' },
-		{ value: 'mercy', text: 'Mercedes-Benz' },
-		{ value: 'hiprem_lux', text: 'Hiace Premio Luxury' },
-		{ value: 'pajero', text: 'Pajero' },
-		{ value: 'elf', text: 'Isuzu ELF' },
-		{ value: 'expander', text: 'Xpander' },
-		{ value: 'alphard', text: 'Alphard' },
-		{ value: 'inov_reb', text: 'Innova Reborn' },
-		{ value: 'hi_com', text: 'Hiace Commuter' }
+		{ value: 'New Avanza', text: 'New Avanza' },
+		{ value: 'Mercedes-Benz', text: 'Mercedes-Benz' },
+		{ value: 'Hiace Premio Luxury', text: 'Hiace Premio Luxury' },
+		{ value: 'Pajero', text: 'Pajero' },
+		{ value: 'Isuzu ELF', text: 'Isuzu ELF' },
+		{ value: 'Xpander', text: 'Xpander' },
+		{ value: 'Alphard', text: 'Alphard' },
+		{ value: 'Innova Reborn', text: 'Innova Reborn' },
+		{ value: 'Hiace Commuter', text: 'Hiace Commuter' }
 	];
 
 	cars.forEach(function (car) {

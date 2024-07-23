@@ -4895,6 +4895,21 @@ input[type="button"].btn-block {
   white-space: nowrap;
 }
 
+#logo-scroll {
+  display: none;
+  /* Sembunyikan gambar untuk tampilan normal */
+}
+
+.navbar.scrolled #logo-normal {
+  display: none;
+  /* Sembunyikan gambar saat scroll */
+}
+
+.navbar.scrolled #logo-scroll {
+  display: inline-block;
+  /* Tampilkan gambar saat scroll */
+}
+
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
