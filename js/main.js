@@ -413,7 +413,7 @@ AOS.init({
 
 	// Tambahkan opsi untuk durasi sewa dari 1 hari hingga 30 hari
 	for (var i = 1; i <= 30; i++) {
-		var value = i + 'Hari'; // Menambahkan 's' untuk plural
+		var value = i + ' Hari'; // Menambahkan 's' untuk plural
 		var text = i + ' Hari';
 		durations.push({ value: value, text: text });
 	}
