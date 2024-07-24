@@ -324,12 +324,24 @@ AOS.init({
 	});
 
 
-	$('#book_pick_date,#book_off_date').datepicker({
-		'format': 'd/m/yyyy',
+	// Inisialisasi datepicker
+	$.fn.datepicker.dates['id'] = {
+		days: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
+		daysShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+		daysMin: ["Mi", "Se", "Sel", "Ra", "Ka", "Ju", "Sa"],
+		months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+		monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+		today: "Hari Ini",
+		clear: "Hapus",
+		titleFormat: "M yyyy", /* Leverages the title format for month and year */
+		weekStart: 0
+	};
+	$('#book_pick_date, #book_off_date').datepicker({
+		'format': 'dd MM yyyy',
 		'autoclose': true,
-		'startDate': new Date()  // Menentukan tanggal mulai dari hari ini
+		'startDate': new Date(), // Menentukan tanggal mulai dari hari ini
+		'language': 'id' // Menetapkan bahasa ke bahasa Indonesia
 	});
-
 
 	$('#time_pick').timepicker({
 		timeFormat: 'H:i'
@@ -408,7 +420,6 @@ AOS.init({
 		{ value: '3 Jam', text: '3 Jam' },
 		{ value: '6 Jam', text: '6 Jam' },
 		{ value: '12 Jam', text: '12 Jam' }
-		// Tambahkan opsi waktu dalam jam jika diperlukan
 	];
 
 	// Tambahkan opsi untuk durasi sewa dari 1 hari hingga 30 hari
@@ -418,19 +429,58 @@ AOS.init({
 		durations.push({ value: value, text: text });
 	}
 
-	durations.forEach(function (duration) {
-		var option = $('<option>').val(duration.value).text(duration.text);
+	function populateDurations() {
+		rentalSelect.empty(); // Hapus semua opsi sebelumnya
+		durations.forEach(function (duration) {
+			var option = $('<option>').val(duration.value).text(duration.text);
 
-		if (duration.disabled) {
-			option.prop('disabled', true);
+			if (duration.disabled) {
+				option.prop('disabled', true);
+			}
+
+			if (duration.selected) {
+				option.prop('selected', true);
+			}
+
+			rentalSelect.append(option);
+		});
+	}
+
+	function updateDuration() {
+		var pickDate = $('#book_pick_date').datepicker('getDate');
+		var offDate = $('#book_off_date').datepicker('getDate');
+
+		if (pickDate && offDate) {
+			var diffDays = Math.floor((offDate - pickDate) / (1000 * 60 * 60 * 24)) + 1; // Menghitung selisih hari
+
+			if (diffDays > 0) {
+				// Filter dropdown durasi sewa sesuai dengan selisih hari
+				var filteredDurations = durations.filter(function (duration) {
+					var value = parseInt(duration.value);
+					return !isNaN(value) && value >= diffDays;
+				});
+
+				rentalSelect.empty(); // Hapus semua opsi sebelumnya
+				filteredDurations.forEach(function (duration) {
+					var option = $('<option>').val(duration.value).text(duration.text);
+					rentalSelect.append(option);
+				});
+
+				// Pilih durasi sesuai dengan selisih hari jika ada
+				rentalSelect.val(diffDays + ' Hari');
+			}
 		}
+	}
 
-		if (duration.selected) {
-			option.prop('selected', true);
-		}
+	// Panggil populateDurations saat inisialisasi
+	populateDurations();
 
-		rentalSelect.append(option);
+	// Tambahkan event listener pada perubahan tanggal
+	$('#book_pick_date, #book_off_date').on('changeDate', function () {
+		updateDuration();
 	});
+
+
 
 	// Kirim ke whatsapp
 	document.querySelector('.request-form').addEventListener('submit', function (e) {
@@ -474,5 +524,25 @@ AOS.init({
 
 		$('#experience-years').text(experienceYears);
 	});
+
+
+	$(document).ready(function () {
+		$('.request-form').on('submit', function (event) {
+			event.preventDefault(); // Mencegah form dari pengiriman default
+
+			// Mengambil elemen counter
+			const counter = $('#customerCount');
+
+			// Mendapatkan nilai saat ini
+			let currentCount = parseInt(counter.text());
+
+			// Menambahkan 1 ke nilai saat ini
+			currentCount += 1;
+
+			// Memperbarui teks elemen dengan nilai baru
+			counter.text(currentCount);
+		});
+	});
+
 })(jQuery);
 
