@@ -353,14 +353,16 @@ AOS.init({
 	var cars = [
 		{ value: '', text: 'Pilih Mobil', disabled: true, selected: true },
 		{ value: 'New Avanza', text: 'New Avanza' },
+		{ value: 'New Xenia', text: 'New Xenia' },
+		{ value: 'Xpander', text: 'Xpander' },
+		{ value: 'Innova Reborn', text: 'Innova Reborn' },
+		{ value: 'Pajero', text: 'Fortuner' },
+		{ value: 'Alphard', text: 'Alphard' },
 		{ value: 'Mercedes-Benz', text: 'Mercedes-Benz' },
 		{ value: 'Hiace Premio Luxury', text: 'Hiace Premio Luxury' },
-		{ value: 'Pajero', text: 'Pajero' },
+		{ value: 'Hiace Commuter', text: 'Hiace Commuter' },
 		{ value: 'Isuzu ELF', text: 'Isuzu ELF' },
-		{ value: 'Xpander', text: 'Xpander' },
-		{ value: 'Alphard', text: 'Alphard' },
-		{ value: 'Innova Reborn', text: 'Innova Reborn' },
-		{ value: 'Hiace Commuter', text: 'Hiace Commuter' }
+
 	];
 
 	cars.forEach(function (car) {
@@ -417,8 +419,6 @@ AOS.init({
 
 	var durations = [
 		{ value: '', text: 'Pilih Durasi Sewa', disabled: true, selected: true },
-		{ value: '3 Jam', text: '3 Jam' },
-		{ value: '6 Jam', text: '6 Jam' },
 		{ value: '12 Jam', text: '12 Jam' }
 	];
 
