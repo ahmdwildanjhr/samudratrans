@@ -497,7 +497,10 @@ AOS.init({
 		const rentalDuration = document.getElementById('rentalDuration').value;
 
 		// Format data untuk pesan WhatsApp
-		const message = `*Pesanan Sewa Mobil*\n` +
+		const message = `*Selamat datang di Samudra Trans* 
+	
+Terima kasih telah memilih layanan kami untuk kebutuhan transportasi kamu. Kami berkomitmen untuk memberikan pengalaman berkendara yang nyaman, aman, dan menyenangkan. Untuk memulai pemesanan, silakan isi formulir berikut dengan informasi lengkap kamu. Tim kami akan segera menghubungi kamu untuk konfirmasi dan detail lebih lanjut.
+	\n` +
 			`Nama Pelanggan : ${custName}\n` +
 			`Nama Mobil        : ${carName}\n` +
 			`Lokasi Ambil        : ${pickupLocation}\n` +
@@ -505,7 +508,8 @@ AOS.init({
 			`Tanggal Ambil     : ${pickupDate}\n` +
 			`Tanggal Kembali : ${returnDate}\n` +
 			`Waktu Ambil       : ${pickupHour}\n` +
-			`Durasi Sewa        : ${rentalDuration}\n`;
+			`Durasi Sewa        : ${rentalDuration}\n` +
+			'\nSelamat menikmati perjalanan kamu bersama Samudra Trans.';
 
 		// Encode URL
 		const encodedMessage = encodeURIComponent(message);
