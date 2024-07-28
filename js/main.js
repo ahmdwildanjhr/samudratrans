@@ -569,8 +569,9 @@ Selamat menikmati perjalanan kamu bersama Samudra Trans.`;
 
 			const encodedPesan = encodeURIComponent(pesan);
 			const whatsappURL = `https://wa.me/6285259119005?text=${encodedPesan}`;
-			window.location.href = whatsappURL;
+			window.open(whatsappURL, '_blank');
 		});
 	});
+	
 })(jQuery);
 
