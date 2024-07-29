@@ -520,16 +520,6 @@ Terima kasih telah memilih layanan kami untuk kebutuhan transportasi kamu. Kami 
 		window.open(whatsappUrl, '_blank');
 	});
 
-	// Calculate the number of years from 2020 to the current year
-	$(document).ready(function () {
-		const startYear = 2020;
-		const currentYear = new Date().getFullYear();
-		const experienceYears = currentYear - startYear;
-
-		$('#experience-years').text(experienceYears);
-	});
-
-
 	$(document).ready(function () {
 		$('.request-form').on('submit', function (event) {
 			event.preventDefault(); // Mencegah form dari pengiriman default
