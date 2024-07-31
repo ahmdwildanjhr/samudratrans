@@ -509,12 +509,12 @@ Terima kasih telah memilih layanan kami untuk kebutuhan transportasi kamu. Kami 
 			`Tanggal Kembali : ${returnDate}\n` +
 			`Waktu Ambil       : ${pickupHour}\n` +
 			`Durasi Sewa        : ${rentalDuration}\n` +
-			'\nSelamat menikmati perjalanan kamu bersama Samudra Trans.';
+			'\nSelamat menikmati perjalanan kamu bersama Samudra Trans.';
 
 		// Encode URL
 		const encodedMessage = encodeURIComponent(message);
 		//nomor whatsapps
-		const whatsappUrl = `https://wa.me/6285259119005?text=${encodedMessage}`;
+		const whatsappUrl = `https://wa.me/6281389892426?text=${encodedMessage}`;
 
 		// Arahkan ke WhatsApp
 		window.open(whatsappUrl, '_blank');

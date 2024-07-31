@@ -18,7 +18,7 @@ Durasi Sewa        :
 Selamat menikmati perjalanan kamu bersama Samudra Trans.`;
 
             const encodedPesan = encodeURIComponent(pesan);
-            const whatsappURL = `https://wa.me/6285259119005?text=${encodedPesan}`;
+            const whatsappURL = `https://wa.me/6281389892426?text=${encodedPesan}`;
             window.open(whatsappURL, '_blank');
         });
     });
